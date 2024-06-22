@@ -7,17 +7,6 @@ import csv
 import os
 
 # Fungsi untuk menyimpan data GPS
-# def save_gps_data(gpsX, gpsY, gpsZ):
-#     file_path = 'gps_data.csv'
-#     file_exists = os.path.isfile(file_path)
-    
-#     with open(file_path, mode='a', newline='') as file:
-#         writer = csv.writer(file)
-#         if not file_exists:
-#             writer.writerow(['GPS X', 'GPS Y', 'GPS Z'])  # Menulis header jika file belum ada
-#         writer.writerow([gpsX, gpsY, gpsZ])
-
-# Fungsi untuk menyimpan data GPS
 csv_file_name = 'gps_data.csv'
 if os.path.exists(csv_file_name):
     os.remove(csv_file_name)
@@ -205,15 +194,7 @@ while robot.step(timestep) != -1:
         rules_23 = np.fmin(etka, dz)
         rules_24 = np.fmin(etka, dka)
         rules_25 = np.fmin(etka, dtka)
-
-        # Persentase_paling_kiri =  np.fmin(rules_1, motor_paling_kiri_mf )
-        # Persentase_kiri =  np.fmin(np.fmax(rules_2, np.fmax(rules_6, np.fmax(rules_11, rules_16))), motor_kiri_mf )
-        # Persentase_agak_kiri =  np.fmin(np.fmax(rules_3, np.fmax(rules_7, np.fmax(rules_12, np.fmax( rules_17, rules_21)))), motor_agak_kiri_mf )
-        # Persentase_lurus =  np.fmin(np.fmax(rules_4, np.fmax(rules_8, np.fmax(rules_13, np.fmax(rules_18, rules_22)))), motor_lurus_mf )
-        # Persentase_agak_kanan =  np.fmin(np.fmax(rules_5, np.fmax(rules_9, np.fmax(rules_14, np.fmax(rules_19, rules_23)))), motor_agak_kanan_mf )
-        # Persentase_kanan =  np.fmin(np.fmax (rules_10, np.fmax(rules_15, np.fmax(rules_18, np.fmax(rules_20, rules_24)))), motor_kanan_mf )
-        # Persentase_paling_kanan =  np.fmin(np.fmax(rules_15, np.fmax(rules_19, np.fmax(rules_20,np.fmax(rules_23, rules_25)))), motor_paling_kanan_mf )
-
+        
         Persentase_paling_kiri =  np.fmin(rules_1, motor_paling_kiri_mf )
         Persentase_kiri =  np.fmin(np.fmax(rules_2, np.fmax(rules_6, np.fmax(rules_11, rules_16))), motor_kiri_mf )
         Persentase_agak_kiri =  np.fmin(np.fmax(rules_3, np.fmax(rules_7, np.fmax(rules_12, np.fmax( rules_17, rules_21)))), motor_agak_kiri_mf )
